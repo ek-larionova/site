@@ -1,5 +1,5 @@
-base_url = "https://<your-username>.github.io/"
-title = "Your Name"
+base_url = "http://www.ekaterinalarionova.eu/"
+title = "Ekaterina Larionova"
 description = "Personal site built with Zola and Portio theme"
 default_language = "en"
 theme = "portio-zola"
@@ -7,8 +7,8 @@ compile_sass = true
 build_search_index = true
 
 [markdown]
-highlight_code = true
-highlight_theme = "base16-ocean-dark"
+#highlight_code = true
+#highlight_theme = "base16-ocean-dark"
 
 [extra]
-author = "Your Name"
+author = "Ekaterina Larionova"
