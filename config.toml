@@ -1,0 +1,31 @@
+base_url = "https://<your-github-username>.github.io/<your-repo-name>/"
+title = "Alex Carter"
+description = "Personal site built with Zola + Goyo"
+default_language = "en"
+compile_sass = true
+build_search_index = true
+theme = "goyo"
+
+[markdown]
+highlight_code = true
+highlight_theme = "css"
+
+[extra]
+author = "Alex Carter"
+links = [
+  { name = "GitHub", url = "https://github.com/<your-github-username>" },
+  { name = "LinkedIn", url = "https://linkedin.com/in/<your-linkedin>" },
+  { name = "Email", url = "mailto:hello@example.com" },
+]
+
+[[extra.menu]]
+name = "Home"
+url = "/"
+
+[[extra.menu]]
+name = "About"
+url = "/about/"
+
+[[extra.menu]]
+name = "Projects"
+url = "/projects/"
