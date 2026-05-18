@@ -1,9 +1,7 @@
 name: Deploy GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
+
   workflow_dispatch:
 
 permissions:
@@ -26,6 +24,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: 'gh-pages'
+
 
       - name: Upload public as Pages artifact
         uses: actions/upload-pages-artifact@v3
