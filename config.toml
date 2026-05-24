@@ -1,26 +1,18 @@
-base_url = "https://www.ekaterinalarionova.eu/"
+base_url = "https://www.ekaterinalarionova.eu"
 title = "Ekaterina Larionova"
 description = "Personal site built with Zola and Portio theme"
-default_language = "en"
+
 theme = "portio-zola"
+
+minify_html = true
 compile_sass = true
-build_search_index = true
+build_search_index = false
 
-#[markdown]
-#highlight_code = true
-#highlight_theme = "base16-ocean-dark"
-
-
-
-
-# Whether to automatically compile all Sass files in the sass directory
-#compile_sass = true
-
-#
+default_language = "en"
 
 
 [languages.en]
-#title = "Portio Zola"
+###title = "Ekaterina Larionova"
 generate_feeds = true
 build_search_index = false
 
@@ -38,9 +30,9 @@ get_in_touch = "Get in touch"
 see_details = "See Details"
 sitemap = "Sitemap"
 address = "Address"
-phone = "Téléphone"
+phone = "Phone"
 email = "Email"
-categories_description = "Showing all posts with the category"
+categories_description = "Showing all posts in the category"
 tags_description = "Showing all posts with the tag"
 opening_hours = "Working hours"
 form_title = "Contact form"
@@ -49,65 +41,135 @@ form_input_name = "Name"
 form_input_email = "Email"
 form_input_message = "Message"
 form_input_agreement = "I agree that my submitted data is being collected and stored."
-copyright = "All right reserved copyright © Portio 2020"
+copyright = "All rights reserved © Ekaterina Larionova"
 
 # Menus
-home = "Home"
-about = "About"
-service = "Service"
-work = "Work"
-resume = "Resume"
-blog = "Blog"
-contact = "Contact"
+calendar = "Calendar"
+about = "About me"
 
-# Sitemaps
+# Sitemap
+calendar_page = "Calendar"
 about_me = "About me"
-frequently_ask_question = "Frequently Ask Question"
-privacy_and_policy = "Privacy & Policy"
-latest_article = "Latest Article"
+
+
+[languages.ru]
+#title = "Екатерина Ларионова"
+generate_feeds = true
+build_search_index = false
+
+taxonomies = [
+    { name = "tags", feed = true, render = true, paginate_by = 9 },
+    { name = "categories", feed = true, render = true, paginate_by = 9 },
+]
+
+[languages.ru.translations]
+contact_me = "Связаться со мной"
+start_project = "Начнём проект"
+showing_all = "Показать всё"
+hire_me_now = "Нанять меня сейчас"
+get_in_touch = "Связаться"
+see_details = "Подробнее"
+sitemap = "Карта сайта"
+address = "Адрес"
+phone = "Телефон"
+email = "Email"
+categories_description = "Все публикации в категории"
+tags_description = "Все публикации с тегом"
+opening_hours = "Рабочие часы"
+form_title = "Контактная форма"
+form_button = "Отправить сообщение"
+form_input_name = "Имя"
+form_input_email = "Email"
+form_input_message = "Сообщение"
+form_input_agreement = "Я согласен, что отправленные мной данные будут собраны и сохранены."
+copyright = "Все права защищены © Екатерина Ларионова"
+
+# Menus
+calendar = "Календарь"
+about = "Обо мне"
+
+# Sitemap
+calendar_page = "Календарь"
+about_me = "Обо мне"
+
+
+[languages.bg]
+title = "Екатерина Ларионова"
+generate_feeds = true
+build_search_index = false
+
+taxonomies = [
+    { name = "tags", feed = true, render = true, paginate_by = 9 },
+    { name = "categories", feed = true, render = true, paginate_by = 9 },
+]
+
+[languages.bg.translations]
+contact_me = "Свържете се с мен"
+start_project = "Да започнем проект"
+showing_all = "Показване на всички"
+hire_me_now = "Наемете ме сега"
+get_in_touch = "Свържете се"
+see_details = "Вижте подробности"
+sitemap = "Карта на сайта"
+address = "Адрес"
+phone = "Телефон"
+email = "Имейл"
+categories_description = "Показват се всички публикации в категорията"
+tags_description = "Показват се всички публикации с този таг"
+opening_hours = "Работно време"
+form_title = "Форма за контакт"
+form_button = "Изпрати съобщение"
+form_input_name = "Име"
+form_input_email = "Имейл"
+form_input_message = "Съобщение"
+form_input_agreement = "Съгласен/съгласна съм подадените от мен данни да бъдат събирани и съхранявани."
+copyright = "Всички права запазени © Екатерина Ларионова"
+
+# Menus
+calendar = "Календар"
+about = "За мен"
+
+# Sitemap
+calendar_page = "Календар"
+about_me = "За мен"
+
 
 [extra]
 date_format = "%d %B, %Y"
+
 logo = "images/logo.png"
 footer_logo = "images/logo.png"
+
 # google_analytics = "YOUR TOKEN FOR GOOGLE ANALYTICS"
-display_cta = true
-author = "Ekaterina Larionova"
+
+display_cta = false
+
 menus = [
-  { name = "home", url = "#home" },
-  { name = "about", url = "#about" },
-  { name = "service", url = "#service" },
-  { name = "work", url = "#portfolio" },
-  { name = "resume", url = "#resume" },
-  { name = "blog", url = "#blog" },
-  { name = "contact", url = "#contact" }
+  { name = "calendar", url = "/calendar/" },
+  { name = "about", url = "/about/" }
 ]
 
 sitemaps = [
-  { name = "about_me", url = "#about" },
-  { name = "frequently_ask_question", url = "#" },
-  { name = "privacy_and_policy", url = "#" },
-  { name = "latest_article", url = "#" }
+  { name = "calendar_page", url = "/calendar/" },
+  { name = "about_me", url = "/about/" }
 ]
 
 socials = [
   { icon = "facebook-original", url = "https://www.facebook.com/" },
   { icon = "linkedin-original", url = "https://www.linkedin.com/" },
-  { icon = "pinterest", url = "https://www.pinterest.com" },
-  { icon = "twitter-original",  url = "https://www.twitter.com" }
+  { icon = "pinterest", url = "https://www.pinterest.com/" },
+  { icon = "twitter-original", url = "https://www.twitter.com/" }
 ]
 
+
 [extra.address]
-phone = "+(448) 833 5272 332"
+phone = "+(359) 888705412"
 email = "hello@example.com"
 address = "23 Khan Niketon, Grand Street, NYK."
-opening_hours = "Open from 10am to 6pm (close at 5pm Sundays) "
+opening_hours = "Open from 10am to 6pm"
+
 
 [extra.form]
-active = true
-formspree_url = "YOUR FORMSPREE URL"
+active = false
+formspree_url = ""
 
-[extra.map]
-active = true
-latitude = "48.864716"
-longitude = "2.349014"
