@@ -146,12 +146,12 @@ display_cta = false
 
 menus = [
   { name = "calendar", url = "/calendar/" },
-  { name = "about", url = "/about/" }
+  { name = "about", url = "#about" }
 ]
 
 sitemaps = [
   { name = "calendar_page", url = "/calendar/" },
-  { name = "about_me", url = "/about/" }
+  { name = "about_me", url = "#about" }
 ]
 
 socials = [
