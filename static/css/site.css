@@ -1,0 +1,14 @@
+:root {
+    --site-background-color: #008000;
+    --bs-body-bg: var(--site-background-color);
+    --bs-body-bg-rgb: 0, 128, 0;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--site-background-color);
+}
