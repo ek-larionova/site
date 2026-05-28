@@ -1,19 +1,14 @@
+{% set about_section = get_section(path="about/_index.md", lang=lang, metadata_only=false) %}
 
-{% set path = "static/sections/about/" ~ lang ~  ".toml" %}
-{% set data = load_data(path=path, required=false) %}
-
-{% if data %} 
+{% if about_section %}
 <section class="section about" id="about">
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-6 offset-lg-3">
                 <div class="about_header mb-5">
-                    {% if data.title %}
                     <span class="top-title">
-                        {{ data.title }}
+                        {{ about_section.title }}
                     </span>
-                    {% endif %}
-                   {{ data.description | markdown(inline=true) | safe }}
                 </div>
             </div>
         </div>
@@ -26,7 +21,7 @@
                             <img src="{{ get_url(path='images/hero/figure-svg.svg') }}" alt="figure-svg">
                         </div>
                         <div class="about_content-thumb-image">
-                            <img src="{{ get_url(path=data.image) }}" alt="about-img"
+                            <img src="{{ get_url(path='images/about/about-img.jpg') }}" alt="about-img"
                                 style="mask: url({{ get_url(path='images/about/about-mask-svg.svg') }}); mask-size: cover;">
                         </div>
                     </div>
@@ -49,7 +44,7 @@
                             </svg>
                         </div>
                         <div class="mb-4 text-light">
-                            {{ data.content | markdown(inline=true) | safe }}
+                            {{ about_section.content | safe }}
                         </div>
                     </div>
                 </div>
