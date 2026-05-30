@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="breadCrumb">
+  <div class="svg-img">
+    <img src="{{ get_url(path='images/hero/figure-svg.svg') }}" alt="">
+  </div>
+  <div class="animate-shape">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600">
+      <defs>
+        <linearGradient id="d" x1="0.929" y1="0.111" x2="0.263" y2="0.935" gradientUnits="objectBoundingBox">
+          <stop offset="0" stop-color="#f1f6f9" />
+          <stop offset="1" stop-color="#f1f6f9" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <g data-name="blob-shape (3)">
+        <path class="blob" fill="url(#d)" d="M455.4 151.1c43.1 36.7 73.4 92.8 60.8 136.3-12.7 43.5-68.1 74.4-111.3 119.4-43.1 45-74 104.1-109.8 109-35.9 5-76.7-44.2-111.8-89.2-35.2-45-64.7-85.8-70.8-132.6-6-46.8 11.6-99.6 46.7-136.3 35.2-36.6 88-57.2 142.4-58.8 54.5-1.7 110.6 15.6 153.8 52.2z" />
+      </g>
+    </svg>
+  </div>
+  <div class="animate-pattern">
+    <img src="{{ get_url(path='images/service/background-pattern.svg') }}" alt="background-shape">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h3 class="breadCrumb__title">{{ section.title }}</h3>
+        <nav aria-label="breadcrumb" class="d-flex justify-content-center">
+          <ol class="breadcrumb align-items-center">
+            <li class="breadcrumb-item"><a href="{{ get_url(path='/', lang=lang) }}">{{ config.title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ section.title }}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% set events = section.extra.events | default(value=[]) %}
+
+<section class="section schedule-page">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <div class="schedule-page__intro">
+          {{ section.content | safe }}
+          {% if section.extra.intro %}
+          <p>{{ section.extra.intro }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="schedule-widget" aria-labelledby="schedule-widget-title">
+          <h2 id="schedule-widget-title">{{ section.extra.widget_title | default(value=section.title) }}</h2>
+          {% if events %}
+          <div class="schedule-widget__dates">
+            {% for event in events %}
+            <article class="schedule-widget__event" {% if not event.streamurl %}tabindex="0"{% endif %} aria-describedby="schedule-event-{{ loop.index }}">
+              {% if event.streamurl %}
+              <a class="schedule-widget__date schedule-widget__date-link" href="{{ event.streamurl }}" target="_blank" rel="noopener noreferrer">
+                <time datetime="{{ event.date }}">{{ event.date_label | default(value=event.date) }}</time>
+              </a>
+              {% else %}
+              <time class="schedule-widget__date" datetime="{{ event.date }}">{{ event.date_label | default(value=event.date) }}</time>
+              {% endif %}
+              {% if event.time %}
+              <span class="schedule-widget__time">{{ event.time }}</span>
+              {% endif %}
+              <h3>{{ event.title }}</h3>
+              <div class="schedule-widget__details" id="schedule-event-{{ loop.index }}" role="tooltip">
+                <p>{{ event.description }}</p>
+              </div>
+            </article>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="schedule-widget__empty">{{ section.extra.empty | default(value="No scheduled dates yet.") }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
