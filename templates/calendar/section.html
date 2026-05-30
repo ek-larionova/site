@@ -58,8 +58,14 @@
           {% if events %}
           <div class="schedule-widget__dates">
             {% for event in events %}
-            <article class="schedule-widget__event" tabindex="0" aria-describedby="schedule-event-{{ loop.index }}">
+            <article class="schedule-widget__event" {% if not event.streamurl %}tabindex="0"{% endif %} aria-describedby="schedule-event-{{ loop.index }}">
+              {% if event.streamurl %}
+              <a class="schedule-widget__date schedule-widget__date-link" href="{{ event.streamurl }}" target="_blank" rel="noopener noreferrer">
+                <time datetime="{{ event.date }}">{{ event.date_label | default(value=event.date) }}</time>
+              </a>
+              {% else %}
               <time class="schedule-widget__date" datetime="{{ event.date }}">{{ event.date_label | default(value=event.date) }}</time>
+              {% endif %}
               {% if event.time %}
               <span class="schedule-widget__time">{{ event.time }}</span>
               {% endif %}

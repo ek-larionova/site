@@ -89,6 +89,17 @@
     line-height: 1.2;
   }
 
+  &__date-link {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+
   &__time {
     color: #7e7e8a;
     display: block;
