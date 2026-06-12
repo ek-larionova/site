@@ -4,11 +4,12 @@ backend:
   name: github
   repo: ek-larionova/site
   branch: main
-
-local_backend: true
+  site_domain: subtle-swan-6ef426.netlify.app
+##local_backend: true
 locale: ru
 site_url: https://www.ekaterinalarionova.eu
 display_url: https://www.ekaterinalarionova.eu
+
 # publish_mode: editorial_workflow
 
 media_folder: static/images/uploads
