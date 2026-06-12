@@ -1,11 +1,15 @@
+# ### {"repository_full_name":"ek-larionova/site","path":"static/admin/config.yml","sha":"21668769d0de9b961cde6efa2902ceb890aa57c6","message":"Localize CMS and add about management","content":
+#
 backend:
   name: github
   repo: ek-larionova/site
   branch: main
 
+local_backend: true
+locale: ru
 site_url: https://www.ekaterinalarionova.eu
 display_url: https://www.ekaterinalarionova.eu
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 
 media_folder: static/images/uploads
 public_folder: /images/uploads
@@ -18,85 +22,244 @@ collections:
       preview: false
     files:
       - name: calendar_en
-        label: Calendar EN
+        label: Календарь — EN
         file: content/calendar/_index.md
         format: toml-frontmatter
         fields:
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
-          - { label: Template, name: template, widget: hidden, default: calendar/section.html }
-          - label: Extra
+          - { label: Заголовок, name: title, widget: string }
+          - { label: Описание, name: description, widget: text }
+          - {
+              label: Шаблон,
+              name: template,
+              widget: hidden,
+              default: calendar/section.html,
+            }
+          - label: Настройки блока
             name: extra
             widget: object
             fields:
-              - { label: Intro, name: intro, widget: text }
-              - { label: Widget title, name: widget_title, widget: string }
-              - { label: Empty text, name: empty, widget: string }
-              - label: Events
+              - { label: Вступительный текст, name: intro, widget: text }
+              - { label: Заголовок виджета, name: widget_title, widget: string }
+              - {
+                  label: Текст при пустом календаре,
+                  name: empty,
+                  widget: string,
+                }
+              - label: События
                 name: events
                 widget: list
-                summary: '{{fields.date}} — {{fields.title}}'
+                summary: "{{fields.date}} — {{fields.title}}"
                 fields:
-                  - { label: Date, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
-                  - { label: Date label, name: date_label, widget: string, required: false }
-                  - { label: Time, name: time, widget: string, required: false }
-                  - { label: Title, name: title, widget: string }
-                  - { label: Description, name: description, widget: text }
-                  - { label: Stream URL, name: streamurl, widget: string, required: false }
-          - { label: Body, name: body, widget: markdown, required: false }
+                  - {
+                      label: Дата,
+                      name: date,
+                      widget: datetime,
+                      date_format: DD-MM-YYYY,
+                      time_format: false,
+                      format: DD-MM-YYYY,
+                    }
+                  - {
+                      label: Подпись даты,
+                      name: date_label,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      label: Время,
+                      name: time,
+                      widget: string,
+                      required: false,
+                    }
+                  - { label: Заголовок события, name: title, widget: string }
+                  - { label: Описание события, name: description, widget: text }
+                  - {
+                      label: Ссылка на трансляцию,
+                      name: streamurl,
+                      widget: string,
+                      required: false,
+                    }
+          - {
+              label: Текст страницы,
+              name: body,
+              widget: markdown,
+              required: false,
+            }
 
       - name: calendar_ru
-        label: Календарь RU
+        label: Календарь — RU
         file: content/calendar/_index.ru.md
         format: toml-frontmatter
         fields:
           - { label: Заголовок, name: title, widget: string }
           - { label: Описание, name: description, widget: text }
-          - { label: Шаблон, name: template, widget: hidden, default: calendar/section.html }
-          - label: Extra
+          - {
+              label: Шаблон,
+              name: template,
+              widget: hidden,
+              default: calendar/section.html,
+            }
+          - label: Настройки блока
             name: extra
             widget: object
             fields:
-              - { label: Вступление, name: intro, widget: text }
+              - { label: Вступительный текст, name: intro, widget: text }
               - { label: Заголовок виджета, name: widget_title, widget: string }
-              - { label: Текст пустого календаря, name: empty, widget: string }
+              - {
+                  label: Текст при пустом календаре,
+                  name: empty,
+                  widget: string,
+                }
               - label: События
                 name: events
                 widget: list
-                summary: '{{fields.date}} — {{fields.title}}'
+                summary: "{{fields.date}} — {{fields.title}}"
                 fields:
-                  - { label: Дата, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
-                  - { label: Подпись даты, name: date_label, widget: string, required: false }
-                  - { label: Время, name: time, widget: string, required: false }
-                  - { label: Заголовок, name: title, widget: string }
-                  - { label: Описание, name: description, widget: text }
-                  - { label: Stream URL, name: streamurl, widget: string, required: false }
-          - { label: Текст страницы, name: body, widget: markdown, required: false }
+                  - {
+                      label: Дата,
+                      name: date,
+                      widget: datetime,
+                      date_format: DD-MM-YYYY,
+                      time_format: false,
+                      format: DD-MM-YYYY,
+                    }
+                  - {
+                      label: Подпись даты,
+                      name: date_label,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      label: Время,
+                      name: time,
+                      widget: string,
+                      required: false,
+                    }
+                  - { label: Заголовок события, name: title, widget: string }
+                  - { label: Описание события, name: description, widget: text }
+                  - {
+                      label: Ссылка на трансляцию,
+                      name: streamurl,
+                      widget: string,
+                      required: false,
+                    }
+          - {
+              label: Текст страницы,
+              name: body,
+              widget: markdown,
+              required: false,
+            }
 
       - name: calendar_bg
-        label: Календар BG
+        label: Календарь — BG
         file: content/calendar/_index.bg.md
         format: toml-frontmatter
         fields:
-          - { label: Заглавие, name: title, widget: string }
+          - { label: Заголовок, name: title, widget: string }
           - { label: Описание, name: description, widget: text }
-          - { label: Шаблон, name: template, widget: hidden, default: calendar/section.html }
-          - label: Extra
+          - {
+              label: Шаблон,
+              name: template,
+              widget: hidden,
+              default: calendar/section.html,
+            }
+          - label: Настройки блока
             name: extra
             widget: object
             fields:
-              - { label: Въведение, name: intro, widget: text }
-              - { label: Заглавие на widget, name: widget_title, widget: string }
-              - { label: Текст при празен календар, name: empty, widget: string }
-              - label: Събития
+              - { label: Вступительный текст, name: intro, widget: text }
+              - { label: Заголовок виджета, name: widget_title, widget: string }
+              - {
+                  label: Текст при пустом календаре,
+                  name: empty,
+                  widget: string,
+                }
+              - label: События
                 name: events
                 widget: list
-                summary: '{{fields.date}} — {{fields.title}}'
+                summary: "{{fields.date}} — {{fields.title}}"
                 fields:
-                  - { label: Дата, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
-                  - { label: Етикет на дата, name: date_label, widget: string, required: false }
-                  - { label: Час, name: time, widget: string, required: false }
-                  - { label: Заглавие, name: title, widget: string }
-                  - { label: Описание, name: description, widget: text }
-                  - { label: Stream URL, name: streamurl, widget: string, required: false }
-          - { label: Текст на страницата, name: body, widget: markdown, required: false }
+                  - {
+                      label: Дата,
+                      name: date,
+                      widget: datetime,
+                      date_format: DD-MM-YYYY,
+                      time_format: false,
+                      format: DD-MM-YYYY,
+                    }
+                  - {
+                      label: Подпись даты,
+                      name: date_label,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      label: Время,
+                      name: time,
+                      widget: string,
+                      required: false,
+                    }
+                  - { label: Заголовок события, name: title, widget: string }
+                  - { label: Описание события, name: description, widget: text }
+                  - {
+                      label: Ссылка на трансляцию,
+                      name: streamurl,
+                      widget: string,
+                      required: false,
+                    }
+          - {
+              label: Текст страницы,
+              name: body,
+              widget: markdown,
+              required: false,
+            }
+
+  - name: about
+    label: О себе
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: about_en
+        label: О себе — EN
+        file: content/about/_index.md
+        format: toml-frontmatter
+        fields:
+          - { label: Заголовок, name: title, widget: string }
+          - { label: Описание, name: description, widget: text }
+          - {
+              label: Не рендерить как отдельную страницу,
+              name: render,
+              widget: boolean,
+              default: false,
+            }
+          - { label: Текст раздела, name: body, widget: markdown }
+
+      - name: about_ru
+        label: О себе — RU
+        file: content/about/_index.ru.md
+        format: toml-frontmatter
+        fields:
+          - { label: Заголовок, name: title, widget: string }
+          - { label: Описание, name: description, widget: text }
+          - {
+              label: Не рендерить как отдельную страницу,
+              name: render,
+              widget: boolean,
+              default: false,
+            }
+          - { label: Текст раздела, name: body, widget: markdown }
+
+      - name: about_bg
+        label: О себе — BG
+        file: content/about/_index.bg.md
+        format: toml-frontmatter
+        fields:
+          - { label: Заголовок, name: title, widget: string }
+          - { label: Описание, name: description, widget: text }
+          - {
+              label: Не рендерить как отдельную страницу,
+              name: render,
+              widget: boolean,
+              default: false,
+            }
+          - { label: Текст раздела, name: body, widget: markdown }
