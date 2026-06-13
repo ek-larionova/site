@@ -15,6 +15,11 @@ extra:
       title: заголовок
       description: описание
       streamurl: https://www.youtube.com/watch?v=HIcSWuKMwOw
+    - date: 13-06-2026
+      time: 16:30
+      title: тест
+      description: описание
+      streamurl: https://www.youtube.com/shorts/8nH98RaJ8ss?feature=share
 ---
 
 ## Расписание
