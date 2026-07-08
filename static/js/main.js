@@ -1,5 +1,16 @@
 const hamburger = document.querySelector("nav button");
 
+function loadSiteStylesheet() {
+    const href = "/css/site.css";
+
+    if (!document.querySelector(`link[href="${href}"]`)) {
+        const stylesheet = document.createElement("link");
+        stylesheet.rel = "stylesheet";
+        stylesheet.href = href;
+        document.head.appendChild(stylesheet);
+    }
+}
+
 function processClick(event) {
     event.preventDefault();
 
@@ -37,6 +48,7 @@ function changeNavbarColor() {
 }
 
 function onLoad() {
+    loadSiteStylesheet();
     changeNavbarColor();
     animateProgress();
 }
