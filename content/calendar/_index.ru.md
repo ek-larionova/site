@@ -1,5 +1,5 @@
 ---
-title: Календурь
+title: Календарь
 description: Ближайшие даты с запланированными трансляциями.
 template: calendar/section.html
 extra:
