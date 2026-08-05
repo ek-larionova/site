@@ -13,7 +13,7 @@ extra:
       date_label: 24 июня 2026
       time: 18:00
       title: заголовок
-      description: описание
+      description: бла бла бла
       streamurl: https://www.youtube.com/watch?v=HIcSWuKMwOw
     - date: 13-06-2026
       time: 16:30
